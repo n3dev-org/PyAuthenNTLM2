@@ -409,7 +409,7 @@ def handle_basic(req, user, password):
 
 def cache_key(req):
      # Using the connection ID doesn't seem to work on Apache 2.4, so switch to the remote address tuple of IP and port.
-     return "%s:%s" % (req.connection.remote_addr)
+     return "%s:%s" % (req.connection.client_addr)
     
 def authenhandler(req):
     '''The request handler called by mod_python in the authentication phase.'''
